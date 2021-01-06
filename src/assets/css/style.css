@@ -1,0 +1,481 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+@media (min-width: 1300px) {
+  .container, .container-sm, .container-md, .container-lg, .container-xl {max-width: 1300px;}
+}
+
+
+@font-face {
+    font-family: 'antoniobold';
+    src: url('../fonts/antonio-bold-webfont.woff2') format('woff2'),
+         url('../fonts/antonio-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'proxima_novabold';
+    src: url('../fonts/fontsfree-net-proxima-nova-bold-webfont.woff2') format('woff2'),
+         url('../fonts/fontsfree-net-proxima-nova-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'proxima_novaregular';
+    src: url('../fonts/proxima_nova_font-webfont.woff2') format('woff2'),
+         url('../fonts/proxima_nova_font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {  background: #fff;  color: #444; font-family: 'proxima_novaregular';}
+.fl { float: left; }
+.fr { float: right; }
+
+a {  color: #16537a;  transition: 0.5s;}
+a:hover, a:active, a:focus {  color: #64373e;  outline: none;  text-decoration: none;}
+p {  padding: 0;  margin: 0;}
+
+
+/* Prelaoder 
+#preloader {position: fixed;  top: 0;  left: 0;  right: 0;  bottom: 0;  z-index: 9999;  overflow: hidden;  background: #fff;}
+#preloader:before {  content: "";  position: fixed;  top: calc(50% - 30px);  left: calc(50% - 30px);  border: 6px solid #f2f2f2;
+  border-top: 6px solid #1bb1dc;  border-radius: 50%;  width: 60px;  height: 60px;  -webkit-animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;}
+*/
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {background: #fff; transition: all 0.5s; z-index: 997; padding:5px 0; border-top:solid 5px #16537a;}
+#header.header-transparent { background: transparent;}
+#header.header-scrolled {background: #fff;box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.main-nav {  }
+.main-nav, .main-nav * { margin: 3px 0 0 0; padding: 0; list-style: none;}
+.main-nav > ul > li {  position: relative;  white-space: nowrap;  float: left;}
+.main-nav a { display: block; position: relative; color: #26282a;padding:0;transition: 0.3s;font-size: 14px;text-transform: uppercase;  font-weight: 600;  padding: 0 15px 0 15px;}
+.main-nav a:hover, .main-nav .active > a, .main-nav li:hover > a { color: #16537a;text-decoration: none;}
+.main-nav .drop-down ul {display: block; position: absolute;  left: 15px;  top: calc(100% - 30px);  z-index: 99;  opacity: 0;  visibility: hidden;
+  padding: 10px 0;  background: #fff;  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);  transition: ease all 0.3s;}
+.main-nav .drop-down:hover > ul {  opacity: 1;  top: 100%;  visibility: visible;}
+.main-nav .drop-down li {  min-width: 180px;  position: relative;}
+.main-nav .drop-down ul a {  padding: 10px 20px;  font-size: 14px;  font-weight: 500;  text-transform: uppercase;  color: #26282a;}
+.main-nav .drop-down ul a:hover, .main-nav .drop-down ul .active > a, .main-nav .drop-down ul li:hover > a { color: #16537a;}
+.main-nav .drop-down > a:after {  content: "\f107";  font-family: FontAwesome;  padding-left: 10px;}
+.main-nav .drop-down .drop-down ul {  top: 0;  left: calc(100% - 30px);}
+.main-nav .drop-down .drop-down:hover > ul {  opacity: 1;  top: 0;  left: 100%;}
+.main-nav .drop-down .drop-down > a {  padding-right: 35px;}
+.main-nav .drop-down .drop-down > a:after {  content: "\f105";  position: absolute;  right: 15px;}
+
+/* Mobile Navigation */
+.mobile-nav {  position: fixed;  top: 0;  bottom: 0;  z-index: 9999;  overflow-y: auto;  left: -260px;  width: 260px;  padding-top: 18px;
+  background: rgba(22, 83, 122, 0.8);  transition: 0.4s;}
+.mobile-nav * {  margin: 0;  padding: 0;  list-style: none;}
+.mobile-nav a {  display: block;  position: relative;  color: #fff;  padding: 10px 20px;  font-weight: 500;}
+.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {  color: #8dc2fa;  text-decoration: none;}
+.mobile-nav .drop-down > a:after {  content: "\f078";  font-family: FontAwesome;  padding-left: 10px;  position: absolute;  right: 15px;}
+.mobile-nav .active.drop-down > a:after {  content: "\f077";}
+.mobile-nav .drop-down > a {  padding-right: 35px;}
+.mobile-nav .drop-down ul {  display: none;  overflow: hidden;}
+.mobile-nav .drop-down li {  padding-left: 20px;}
+.mobile-nav-toggle {  position: fixed;  right: 0;  top: 0;  z-index: 9998;  border: 0;  background: none;  font-size: 24px;  transition: all 0.4s;
+  outline: none !important;  line-height: 1;  cursor: pointer;  text-align: right;}
+.mobile-nav-toggle i {  margin: 50px 18px 0 0;  color: #065e77;}
+.mobile-nav-overly {  width: 100%;  height: 100%;  z-index: 9997;  top: 0;  left: 0;  position: fixed;
+  background: rgba(22, 83, 122, 0.8);  overflow: hidden;  display: none;}
+.mobile-nav-active {  overflow: hidden;}
+.mobile-nav-active .mobile-nav {  left: 0;}
+.mobile-nav-active .mobile-nav-toggle i {  color: #fff;}
+
+/*--------------------------------------------------------------
+# Menu Right (Search, Cart, Login)
+--------------------------------------------------------------*/
+.meanuright { margin:55px 0 0 0; padding: 0; list-style: none; text-align: center;}
+.meanuright li { margin:0; padding: 0 0 0 15px; list-style: none; display: inline-block;}
+.meanuright li .fa { font-size: 16px; color:#363636; padding-right: 5px; }
+.meanuright li .fa:hover { font-size: 16px; color:#015d98; padding-right: 5px; }
+.meanuright li a {color: #015d98; font-size: 14px; font-weight: 600; text-transform: uppercase;}
+.meanuright li a:hover {color: #333;}
+
+@media (max-width: 767px) {
+.meanuright { margin: 20px 0;padding: 0;list-style: none;text-align: center;}
+ }
+
+@media only screen and (device-width: 768px) {
+  .meanuright { margin:0; padding: 0; list-style: none; float: right;}
+   
+}
+@media (max-width: 1300px) {
+.main-nav a { font-size: 12px !important;  padding: 0 10px; }
+.meanuright { text-align: center; margin: 55px 0;  }
+.meanuright li {padding: 0 0 0 6px !important;}
+  
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {font-size: 15px; line-height: 24px;}
+#footer .footer-top { background: #264d6e; color: #fff;   padding:25px 0 15px 0; }
+#footer h3 { font-weight: 600; padding-bottom: 20px;  padding-top: 40px; }
+#footer .quikclinks { margin-top: 0; padding: 0; list-style: none; }
+#footer .quikclinks li { margin-top: 0; padding: 0; list-style: none; }
+#footer a { color: #fff; }
+#footer a:hover { color: #fff;  opacity: 0.6;}
+#footer .followus { margin-top: 0; padding: 0; list-style: none; }
+#footer .followus li { margin-top: 0 ; padding: 0 15px 0 0; list-style: none;  display: inline-block;}
+#footer .followus li a { cursor: pointer; opacity: 1 }
+#footer .followus li a:hover { cursor: pointer; opacity: 0.6; }
+
+#footer .footer-bottom { background: #1e3e58; }
+#footer .copyright {  text-align: center;  padding:15px 0;  color: #fff;  font-size: 15px;}
+
+
+/*--------------------------------------------------------------
+# Gradiant Background
+
+--------------------------------------------------------------*/
+.gradiantbg {background-image: linear-gradient(110deg, #16537a 50%, #713234 75%); padding:100px 0;}
+
+/*--------------------------------------------------------------
+# Login and Registration 
+--------------------------------------------------------------*/
+.loginbox { background: #fff; padding: 40px; }
+.loginbox h3 { font-weight: bold;    color: #264d6e;    text-align: center;    border-bottom: solid 1px #ccc;    padding: 0 0 40px 0;
+    margin-bottom: 50px;    font-size: 34px;}
+.loginbox input, select, textarea {     width: 100%;    border: solid 1px #e0e0e0;    padding: 10px 15px;    margin-bottom: 20px;    color: #757575 !important;}
+.loginbox button {width: 100%; border: solid 1px #64373e;    padding: 5px 15px;    margin-bottom: 20px;    background: #64373e;    font-weight: 600; font-size: 25px;    color:#fff !important; }
+.loginbox button:hover {    border: solid 1px #185278;    background: #185278; }
+.loginbox .forgotpass {text-align: center;    display: block;    font-weight: 600;    margin-top: 20px; color: #264d6e;}
+.checkbox { width: 3% !important }
+.checkboxlabel {    margin-top: -6px;    margin-left: 11px !important; font-weight: 600; color: #264d6e}
+
+/*--------------------------------------------------------------
+# Account Section Header
+--------------------------------------------------------------*/
+.accountbg {background-image: linear-gradient(110deg, #16537a 50%, #713234 75%); padding:70px 0 0;}
+h4 {font-family: 'antoniobold'; font-size: 64px; color: #fff; text-transform: uppercase; letter-spacing: -3px;}
+.accountsection { background: rgba(255, 255, 255, 0.8); }
+.accountsection ul { list-style: none; margin:0; padding: 0;  }
+.accountsection ul li { list-style: none; display: inline-block;margin:0; padding: 0; }
+.accountsection ul li a { font-size: 20px; color:#000; font-weight: 600; text-transform: capitalize; margin: 25px 10px 20px 10px; display: block;}
+.btngreen {border: solid 1px #54a009; padding: 10px 15px; margin-bottom: 20px;background: #54a009;font-weight: 600; font-size: 20px;color:#fff !important;}
+.btnblue {border: solid 1px #16537a; padding: 10px 15px; margin-bottom: 20px;background: #16537a;font-weight: 600; font-size: 20px;color:#fff !important;}
+.btngreen:hover {border: solid 1px #272728; padding: 10px 15px; margin-bottom: 20px;background: #272728;font-weight: 600; font-size: 20px;color:#fff !important;}
+.btnblue:hover {border: solid 1px #272728; padding: 10px 15px; margin-bottom: 20px;background: #272728;font-weight: 600; font-size: 20px;color:#fff !important;}
+
+@media (max-width: 767px) {
+.accountsection ul li { display: list-item; }
+ }
+}
+
+
+
+/*--------------------------------------------------------------
+# Chnage Password
+--------------------------------------------------------------*/
+#changepassword {margin:50px 0;}
+#changepassword input, button { width: 100%;   width: 100%;    border: solid 1px #e0e0e0;    padding: 10px 15px;    margin-bottom: 20px;    color: #757575 !important; }
+.btngreen {border: solid 1px #54a009; padding: 10px 15px; margin-bottom: 20px;background: #54a009;font-weight: 600; font-size: 20px;color:#fff !important;}
+.btnblue {border: solid 1px #16537a; padding: 10px 15px; margin-bottom: 20px;background: #16537a;font-weight: 600; font-size: 20px;color:#fff !important;}
+.btngreen:hover {border: solid 1px #272728; background: #272728;}
+.btnblue:hover {border: solid 1px #272728; background: #272728;}
+
+
+/*--------------------------------------------------------------
+# Artist My Account
+--------------------------------------------------------------*/
+
+#artistaccount {margin:50px 0;}
+#artistaccount input, button, select { width: 100%;   width: 100%;    border: solid 1px #e0e0e0;    padding: 10px 15px;    margin-bottom: 20px;    color: #757575 !important; }
+#artistaccount textarea {height: 112px; margin-bottom: 13px;}
+#artistaccount select {height: 45px;}
+#artistaccount .selectfile { background: #d7d7d7; }
+#artistaccount .btngreen {border: solid 1px #54a009; padding: 10px 15px; margin-bottom: 20px;background: #54a009;font-weight: 600; font-size: 20px;color:#fff !important;}
+#artistaccount .btnblue {border: solid 1px #16537a; padding: 10px 15px; margin-bottom: 20px;background: #16537a;font-weight: 600; font-size: 20px;color:#fff !important;}
+#artistaccount .btngreen:hover {border: solid 1px #272728; background: #272728;}
+#artistaccount .btnblue:hover {border: solid 1px #272728; background: #272728;}
+
+/*--------------------------------------------------------------
+# Artist Add Collection
+--------------------------------------------------------------*/
+#artistaddmycoolection {margin:50px 0;}
+#artistaddmycoolection input, button, select { width: 100%;   width: 100%;    border: solid 1px #e0e0e0;    padding: 10px 15px;    margin-bottom: 20px;    color: #757575 !important; }
+#artistaddmycoolection textarea { padding:15px 15px 22px;}
+#artistaddmycoolection select {height: 45px;}
+#artistaddmycoolection .dollor {margin: 12px 0 0 -15px;    float: left;    color: #757575;}
+#artistaddmycoolection .selectfile { background: #d7d7d7; }
+#artistaddmycoolection .productthumb {margin-bottom: 15px;}
+#artistaddmycoolection .productthumb .bin { color: red; float: right; }
+#artistaddmycoolection .productthumb .tic{ color: #ccc; float: left;}
+#artistaddmycoolection .productthumb .tic:hover{ color: #54a009; }
+#artistaddmycoolection .slider.slider-horizontal { width: 100% !important; }
+#artistaddmycoolection .tooltip.show { top: -35px; }
+#artistaddmycoolection .tooltip .arrow {display: none;}
+#artistaddmycoolection .tooltip-inner { background: none;color: #757575; }
+#artistaddmycoolection label {color: #757575; font-size: 15px;}
+#artistaddmycoolection .btngreen {border: solid 1px #54a009; padding: 10px 15px; margin-bottom: 20px;background: #54a009;font-weight: 600; font-size: 20px;color:#fff !important;}
+#artistaddmycoolection .btnblue {border: solid 1px #16537a; padding: 10px 15px; margin-bottom: 20px;background: #16537a;font-weight: 600; font-size: 20px;color:#fff !important;}
+#artistaddmycoolection.btngreen:hover {border: solid 1px #272728; background: #272728;}
+#artistaddmycoolection .btnblue:hover {border: solid 1px #272728; background: #272728;}
+
+
+/*--------------------------------------------------------------
+# Artist Add Collection
+--------------------------------------------------------------*/
+
+#artistmycollection {margin:50px 0;}
+#artistmycollection .producttitle { margin: 15px 0px !important; color: #232425; font-weight: 600; font-size: 20px; margin:0; padding: 0;  }
+#artistmycollection .btngreen {font-weight: normal; border: solid 1px #54a009; padding: 10px 15px; margin-bottom: 20px;background: #54a009; font-size: 16px;color:#fff !important;}
+#artistmycollection .btnred {border: solid 1px #ea0007; padding: 10px 15px; margin-bottom: 20px;background: #ea0007;font-size: 16px;color:#fff !important;}
+#artistmycollection .btngreen:hover {border: solid 1px #272728; background: #272728;}
+#artistmycollection .btnred:hover {border: solid 1px #272728; background: #272728;}
+#artistmycollection .addnew {font-weight:600; border: solid 1px #54a009; padding: 10px 15px; margin-bottom: 20px;background: #54a009; font-size: 20px;color:#fff !important; margin-bottom: 20px; display: inline-block; float: right;}
+#artistmycollection .addnew:hover {border: solid 1px #272728;background: #272728;}
+
+
+/*--------------------------------------------------------------
+# Artist Add Collection
+--------------------------------------------------------------*/
+
+#orders {margin:50px 0;}
+#orders select { width: 100%;   width: 100%;    border: solid 1px #e0e0e0;    padding: 10px 15px;    margin-bottom: 20px;    color: #757575 !important; }
+#orders table th { background: #f1f1f1; margin: 0; padding:10px 10px 10px 10px !important; font-size: 16px; color: #312229; }
+#orders table td {  margin: 0; font-size: 16px; color: #1d1d1d; }
+#orders table td .message {  margin: 0; font-size: 16px; color: #a8a8a8; }
+#orders table td a {color: #128ad6; border-bottom: solid 2px #128ad6; font-weight: 600;}
+#orders table td a:hover {color: #333; border-bottom: solid 2px #333; font-weight: 600;}
+#orders .inprocess {color: #fc8e00; font-weight: 600;}
+#orders   .onhold  {color: #ff0000; font-weight: 600;}
+#orders .completed {color: #3ab100; font-weight: 600;}
+
+
+/*--------------------------------------------------------------
+# Art Details
+--------------------------------------------------------------*/
+
+#artdetailbg {background:#16537a url(../img/innerbanner.jpg) top center no-repeat; padding:0; width: 100%;}
+#artdetailbg h4 { margin:90px 0 0 0;}
+#artdetailbg .breadcrum {margin:0 0 90px 0;} 
+#artdetailbg .breadcrum a { font-size: 16px;  color: #fff; font-weight: normal;transition: all 300ms ease; opacity: 1;}
+#artdetailbg .breadcrum a:hover {opacity: 0.5;}
+#artdetailbg .breadcrum > a:after {  content: "\f101";  font-family: FontAwesome;  padding:0 5px; }
+#artdetailbg .breadcrum > a:last-child:after{  content: '';}
+.searchbg {background-image: linear-gradient(180deg, #ffffff 50%, #ededed 75%); padding-top: 20px;}
+.searchbg input{ width: 100%; font-style: italic; border: solid 1px #e0e0e0;    padding: 10px 15px;    margin-bottom: 20px;    color: #757575 !important; }
+.searchbg .btnblue {border: solid 1px #16537a; padding: 10px 15px; margin-bottom: 20px;background: #16537a;font-weight: 600; font-size: 16px;color:#fff !important;}
+.searchbg .btnblue:hover {border: solid 1px #272728; background: #272728;}
+.searchbg .pl0 { padding-left: 0; }
+.searchbg .pr0 { padding-right: 0; }
+#artdetail { margin-top: 50px; }
+#artdetail h2 {  font-family: 'proxima_novabold'; font-size: 26px; color: #16537a; }
+#artdetail h3 {  font-family: 'proxima_novabold'; font-size: 20px; color: #16537a; }
+#artdetail .descriptison{color: #8d8d8d; font-weight: normal; font-size: 16px; line-height: 24px;}
+#artdetail .cre_art { border-top: solid 1px #e5e5e5; border-bottom: solid 1px #e5e5e5; font-weight: bold; margin:20px 0; padding:20px; color: #000;}
+#artdetail .cre_art span { font-weight: normal; }
+#artdetail .price_art { border-top: solid 1px #e5e5e5; border-bottom: solid 1px #e5e5e5; font-weight: bold; margin:20px 0; padding:17px 0; color: #54a009; font-size: 20px;}
+
+@media (max-width: 767px) {
+#artdetailbg h4 { margin:20px 0 0 0; font-size: 40px;letter-spacing: 0;}
+#artdetailbg .breadcrum {margin: 10px 0 20px 0;line-height: 17px;} 
+.searchbg .pl0 { padding-left:15px; }
+.searchbg .pr0 { padding-right: 15px; }
+ }
+}
+
+#artdetail .product__carousel {display: block; max-width: 700px;  margin: 1em auto 3em;}
+#artdetail .product__carousel a {  display: block;  margin-bottom: 15px;}
+#artdetail .product__carousel .gallery-top {  border: 1px solid #ebebeb; margin: 0px;}
+#artdetail .product__carousel .gallery-top .swiper-slide {  position: relative;  overflow: hidden; background: #fcfcfc;}
+#artdetail .product__carousel .gallery-top .swiper-slide a { position: relative;  display: flex;  justify-content: center;  align-items: center;  width: 100%;  height: 100%;}
+#artdetail .product__carousel .gallery-top .swiper-slide a img {  width: 100%;  height: 100%;  object-fit: contain;}
+#artdetail .product__carousel .gallery-top .swiper-slide .easyzoom-flyout img {  min-width: 100%;  min-height: 100%;}
+#artdetail .product__carousel .swiper-button-next.swiper-button-white,.product__carousel .swiper-button-prev.swiper-button-white {  color: #16537a;}
+#artdetail .product__carousel .gallery-thumbs .swiper-slide {  position: relative;  transition: border .15s linear;  border: 1px solid #ebebeb; 
+  cursor: pointer;  overflow: hidden;  height: calc(100% - 2px);}
+#artdetail .product__carousel .gallery-thumbs .swiper-slide.swiper-slide-thumb-active {  border-color: #000;}
+#artdetail .product__carousel .gallery-thumbs .swiper-slide img {  position: absolute;  left: 50%;  top: 50%;  transform: translate(-50%,-50%);  max-width: 100%;}
+#artdetail .swiper-container{margin-top: 20px;}
+.booktitle { margin-bottom: 10px; font-weight: bold; }
+.bookdetails {margin-bottom: 10px;}
+
+/*--------------------------------------------------------------
+# Art Details
+--------------------------------------------------------------*/
+
+#storelist { margin: 50px 0; }
+#storelist .title { background: #16537a; font-size: 20px; color: #fff; font-weight: bold; padding: 15px; }
+#storelist .name {  font-size: 20px; color: #333; font-weight: bold; padding: 10px 0; }
+#storelist input { margin: 0 !important; }
+#storelist input, button, select { margin-bottom: 0 !important; }
+#storelist .number-input {background-color: #f8f9fa;}
+#storelist .number-input button {background-color: transparent; border: none; align-items: center;  justify-content: center;  cursor: pointer;  position: relative; padding: 0;}
+#storelist .number-input button:before,.number-input button:after {  display: inline-block;  position: absolute;  content: '';  height: 2px;  transform: translate(-50%, -50%);}
+#storelist .number-input button.plus:after {  transform: translate(-50%, -50%) rotate(90deg);}
+#storelist .number-input input[type=number] {  text-align: center;}
+#storelist .md-number-input.number-input {  border: 1px solid #ddd;  width: 10rem; margin:0 auto; border-radius: 50px;}
+#storelist .md-number-input.number-input button { outline: none;  width: 2rem;}
+#storelist .md-number-input.number-input button.minus {}
+#storelist .md-number-input.number-input button.plus { }
+#storelist .md-number-input.number-input button:before,.md-number-input.number-input button:after {  width: 0.6rem;  background-color: #212121; margin-top: -5px;}
+#storelist .md-number-input.number-input input[type=number] {  max-width: 5rem;  border: solid #ddd;  border-width: 0 1px;  font-size: 1rem;  font-weight: bold;  outline: none;
+  padding: 5px 0 0 10px;}
+#storelist .btngreen {font-weight:bold; border: solid 1px #54a009; padding: 5px 15px; margin-bottom: 20px;background: #54a009; font-size: 16px;color:#fff !important; text-transform: uppercase; margin-top: 15px;}
+#storelist .btngreen:hover {border: solid 1px #272728; background: #272728;}
+.cartpopup input, button { width: inherit; }
+
+/*--------------------------------------------------------------
+# Home Slider
+--------------------------------------------------------------*/
+
+
+.carousel-title { text-align: center; background-image: linear-gradient(180deg, #ffffff 50%, #ededed 75%); padding:10px 0; }
+.carousel-title a { font-size: 16px; color: #4f5356; padding:5px 20px 5px; display: inline-block; font-weight: bold; cursor: pointer; }
+.carousel-title a:hover { font-size: 16px; color: #16537a; cursor: pointer;}
+.carousel-title .selected { font-size: 16px; color: #16537a; cursor: pointer; border-bottom: solid 1px #16537a;}
+.bannerdetails { position:absolute; bottom:100px; width: 100% ;color:#fff; margin: 0 auto; text-align: center; }
+.bannerdetails h1 {font-family: 'antoniobold'; font-size: 80px; letter-spacing: -3px; }
+.bannerdetails a{background: #54a009;    font-size: 40px;    font-family: 'proxima_novaregular';    color: #fff;    padding: 15px 60px;    border-radius: 10px; margin-top:10px;  }
+.bannerdetails a:hover {background: #333;}
+
+/*--------------------------------------------------------------
+# Home Page other section
+--------------------------------------------------------------*/
+.maintitle {font-family: 'antoniobold'; color: #16537a; font-size: 45px; letter-spacing: -2px; font-weight: bold; text-transform: uppercase; display: block; margin:40px 0; line-height: 50px; }
+.maintitle:after {  content: "\f105";  font-family: FontAwesome;  padding:0 5px; color: #fe6601; font-size: 60px; }
+
+#homeart { margin:0; text-align: center; padding: 0; }
+#homeart .homepagearts { margin-top: 20px; }
+#homeart .arttitle { background: linear-gradient(rgba(0,130,170,0),rgba(0,0,0,1)); display: block; font-size: 20px;font-family: 'proxima_novabold'; color: #fff; text-align: left; margin-top: -30px;}
+#homeart .arttitle a {  font-size: 20px;font-family: 'proxima_novaregular'; font-weight: 600; color: #fff; padding: 15px; }
+
+#homeartistsignup {background-image: linear-gradient(90deg, #16537a 20%, #713234 75%); margin-top: 50px}
+#homeartistsignup .homeartistdetails {font-family: 'proxima_novabold'; color: #fff;     margin: 30px 0px;}
+#homeartistsignup .homeartistdetails .name{    font-size: 60px;    margin: 0;    padding: 0; line-height: 60px;}
+#homeartistsignup .homeartistdetails .border { height: 5px; background:#fff; width:35%;  }
+#homeartistsignup .homeartistdetails .location{    font-size: 44px;    margin: 0;    padding: 0;}
+#homeartistsignup .homeartistdetails a{    font-size: 60px;    margin:35px 0 0 0;    padding: 0; cursor: pointer; display: inline-block;}
+#homeartistsignup .homeartistdetails a:hover {color:#f7db16;}
+#homeartistsignup .homeartistdetails a:after{  content: "\f105";  font-family: FontAwesome;  padding:0 5px; color: #fff; font-size: 60px; }
+#homeartistsignup .homeartistdetails .yellobtn{  font-family: 'proxima_novaregular'; font-weight: 600; background:#f7db16;  color: #333; font-size:16px;    margin: 0;    padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer;}
+#homeartistsignup .homeartistdetails .yellobtn:hover {background:#fff; color: #333;}
+#homeartistsignup .homeartistdetails .yellobtn:after {content: ""; font-size: 0px; }
+
+#homestoresignup {background:#16537a url(../img/storesignupbg.jpg) top center no-repeat; padding:0; width: 100%;}
+#homestoresignup .homeartistdetails {font-family: 'proxima_novabold'; color: #fff;     margin: 30px 0px;}
+#homestoresignup .homeartistdetails .name{    font-size: 60px;    margin: 0;    padding: 0; line-height: 60px;}
+#homestoresignup .homeartistdetails .border { height: 5px; background:#fff; width:35%;  }
+#homestoresignup .homeartistdetails .location{    font-size: 44px;    margin: 0;    padding: 0;}
+#homestoresignup .homeartistdetails a{    font-size: 60px;    margin:35px 0 0 0;    padding: 0; cursor: pointer; display: inline-block;}
+#homestoresignup .homeartistdetails a:hover {color:#f7db16;}
+#homestoresignup .homeartistdetails a:after{  content: "\f105";  font-family: FontAwesome;  padding:0 5px; color: #fff; font-size: 60px; }
+#homestoresignup .homeartistdetails .yellobtn{ font-family: 'proxima_novaregular'; font-weight: 600;  background:#f7db16;  color: #333; font-size:16px;    margin: 0;    padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer;}
+#homestoresignup .homeartistdetails .yellobtn:hover {background:#fff; color: #333;}
+#homestoresignup .homeartistdetails .yellobtn:after {content: ""; font-size: 0px; }
+
+#ourmission {background:#16537a url(../img/ourmissionbg.jpg) top center no-repeat; width: 100%; padding: 115px 0; font-family: 'proxima_novabold'; color: #fff; text-align: center;}
+#ourmission .title{    font-size: 60px;    margin: 0;    padding: 0; line-height: 60px;}
+#ourmission .details{ font-family: 'proxima_novaregular'; font-size: 24px; margin:35px 0;  }
+#ourmission .yellobtn{   background:#f7db16;  color: #333; font-size:16px;    margin: 0;    padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; font-family: 'proxima_novaregular'; font-weight: 600;}
+#ourmission .yellobtn:hover {background:#fff; color: #333;}
+
+
+#newsletter { margin:50px 0; text-align: center; }
+#newsletter h2 { margin: 0; padding: 0;  font-family: 'proxima_novaregular'; font-size: 50px; font-weight: 600; color: #181b31;}
+#newsletter p { margin: 0 0 50px 0; padding: 0;  font-family: 'proxima_novaregular'; font-size: 18px; color: #707281; font-weight: normal;}
+#newsletter .newsletterbox {border: solid 1px #ccc;    border-radius: 35px;    padding: 10px;}
+#newsletter input { border: none; }
+#newsletter .input-group-text  { border: none; background: none; }
+#newsletter button { background: none; border: none; color: #000 !important; }
+#newsletter button:hover { background: none; border: none; color: #264d6e !important; }
+
+
+/*--------------------------------------------------------------
+# All Artists PaGE
+--------------------------------------------------------------*/
+
+#allartist { margin:50px 0; font-family: 'proxima_novaregular'; }
+#allartist .artistbox { display: block; background: #f3f0f0; border: solid 1px #e2e2e2; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); padding: 0; }
+#allartist .name { font-size: 22px; font-weight: bold;color: #6b3438; padding-bottom: 10px;  }
+#allartist .details { padding: 15px 20px; font-weight: 300; color: #353332; line-height: 30px;}
+
+/*--------------------------------------------------------------
+# Art listing
+--------------------------------------------------------------*/
+
+#artlisting { margin: 50px 0; }
+#artlisting .name {  font-size: 20px; color: #333; font-weight: bold; padding: 10px 0; }
+#artlisting .box {border: solid 1px #e2e2e2; padding: 0; text-align: center; display: block; }
+#artlisting .imgbox {background: #f3f0f0; min-height: 360px; overflow: hidden; width: auto; }
+#artlisting .price {font-family: 'proxima_novaregular'; font-size: 22px;    font-weight: bold;    color: #16537B;}
+#artlisting .btngreen {font-weight: bold; width: 95%; text-transform: uppercase; border: solid 1px #54a009; padding:5px 15px;background: #54a009; font-size: 17px;color:#fff !important; margin: 10px 0!important;}
+#artlisting .btngreen:hover {border: solid 1px #272728; background: #272728;}
+#artlisting h2 { font-size: 32px; color: #16537a; font-weight: bold;  font-family: 'proxima_novaregular';  font-weight: bold; margin-bottom: 30px; text-align: center; }
+
+
+
+/*--------------------------------------------------------------
+# Artist Details
+--------------------------------------------------------------*/
+
+#artistdetails { margin: 50px 0; }
+#artistdetails h1{ font-size: 32px; color: #16537a; font-weight: bold;  font-family: 'proxima_novaregular';  font-weight: bold; }
+#artistdetails ul { list-style: none; margin-top: 0; padding: 0 ;}
+#artistdetails ul li { list-style: none; margin-top: 0; padding:10px 0 ; font-size: 19px; color: #353332; font-family: 'proxima_novaregular'; font-weight:300; border-bottom: dashed 1px #ccc;}
+#artistdetails .bio { border-left:solid 1px #e5e5e5; line-height: 28px; }
+
+
+/*--------------------------------------------------------------
+# Search Art listing
+--------------------------------------------------------------*/
+
+#searchart { margin: 50px 0; }
+#searchart .name { font-family: 'proxima_novaregular'; font-size: 24px;    font-weight: bold;    color: #16537B; margin:10px; }
+#searchart .box { padding: 0; text-align: center; display: block; }
+#searchart .box:hover {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+
+
+/*--------------------------------------------------------------
+# My Cart
+--------------------------------------------------------------*/
+
+#searchart { margin: 50px 0; }
+
+

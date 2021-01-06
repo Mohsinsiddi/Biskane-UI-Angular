@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "biskane-ui"
+  "defaultProject": "biskane-ui",
+  "cli": {
+    "analytics": "5fc324ef-acec-42ae-a523-2019e72bcb12"
+  }
 }
