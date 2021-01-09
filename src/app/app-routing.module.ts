@@ -13,23 +13,27 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'home'
   },
-
+  
   {
     path:"home",
     component:HomeComponent
   },
+
   {
     path:"customersignup",
     component:CustomersignupComponent
   },
+
   {
     path:"storesignup",
     component:StoresignupComponent
   },
+
   {
     path:"artistsignup",
     component:ArtistsignupComponent
   },
+  
   {
     path:"login",
     component:LoginComponent
